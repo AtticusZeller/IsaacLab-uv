@@ -1,0 +1,60 @@
+# https://pre-commit.com/
+# `pre-commit install` to set up the git hook scripts
+# `pre-commit autoupdate` to update repos
+# `pre-commit run --all-files` run hooks for all file
+
+# exclude: (^|/)\..*
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-toml
+      - id: check-yaml
+      - id: sort-simple-yaml
+      - id: check-json
+      - id: pretty-format-json
+        args: [--autofix]
+      - id: check-added-large-files
+        args: [--maxkb=51200]
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: detect-private-key
+
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.4.1
+    hooks:
+      - id: codespell
+        args: [--write-changes]
+        files: \.(py|sh|json|yml|yaml|md)$
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.4
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+
+  - repo: https://github.com/hadolint/hadolint
+    rev: v2.13.1-beta
+    hooks:
+      - id: hadolint
+        name: Lint Dockerfiles
+        description: Runs hadolint to lint Dockerfiles
+        entry: hadolint
+        language: system
+        types: ["dockerfile"]
+
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    # uv version.
+    rev: 0.6.12
+    hooks:
+      # Update the uv lockfile
+      - id: uv-lock
+
+ci:
+  autofix_commit_msg: 🎨 [pre-commit.ci] Auto format from pre-commit.com hooks
+  # Settings for the https://pre-commit.ci/ continuous integration service
+  autofix_prs: true
+  autoupdate_commit_msg: ⬆ [pre-commit.ci] pre-commit autoupdate
+  autoupdate_schedule: monthly

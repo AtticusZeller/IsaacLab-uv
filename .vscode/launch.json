@@ -1,0 +1,59 @@
+{
+  "configurations": [
+    {
+      "args": [
+        "-c",
+        "config/train_mlp.yml",
+        "--eval",
+        "--run-id",
+        "fv8hy5jd"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "name": "Evaluation MLP",
+      "program": "${workspaceFolder}/src/expt/main.py",
+      "request": "launch",
+      "type": "debugpy"
+    },
+    {
+      "args": [
+        "-c",
+        "config/efficientnet_v2.yml",
+        "--train"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "name": "Train MLP",
+      "program": "${workspaceFolder}/src/expt/main.py",
+      "request": "launch",
+      "type": "debugpy"
+    },
+    {
+      "args": [
+        "-c",
+        "config/train_mlp.yml",
+        "--sweep",
+        "--sweep-config",
+        "config/sweep/mlp.yml"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "name": "Sweep MLP",
+      "program": "${workspaceFolder}/src/expt/main.py",
+      "request": "launch",
+      "type": "debugpy"
+    },
+    {
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "name": "Python: Debug Tests",
+      "program": "${file}",
+      "purpose": [
+        "debug-test"
+      ],
+      "request": "launch",
+      "type": "debugpy"
+    }
+  ],
+  "version": "0.2.0"
+}
