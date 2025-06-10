@@ -14,7 +14,7 @@ dependencies = [
     "isaaclab-rl",
     "isaaclab-tasks",
     "isaacsim[all,extscache]==4.5.0",
-    "torch>= 2.1,<= 2.7.0",
+    "torch>= 2.1,<= 2.7.1",
     "torchmetrics>=1.6.1",
     "torchvision>=0.19.0",
     "typer>=0.15.1",
