@@ -170,3 +170,6 @@ cython_debug/
 logs/
 wandb/
 artifacts/
+
+# compatibility_check for isaac sim
+checker
