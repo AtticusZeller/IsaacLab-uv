@@ -1,11 +1,11 @@
 ### system requirements
 
-[![IsaacSim 4.5.0](https://img.shields.io/badge/IsaacSim-4.5.0-silver.svg)](https://developer.nvidia.com/isaac-sim)
+[![IsaacSim 5.0.0](https://img.shields.io/badge/IsaacSim-5.0.0-silver.svg)](https://developer.nvidia.com/isaac-sim)
 [![Python 3.10](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/release/python-31013/)
 [![Platform: Linux-64](https://img.shields.io/badge/platform-linux--64-orange.svg)](https://releases.ubuntu.com/20.04/)
 [![Platform: Windows-64](https://img.shields.io/badge/platform-windows--64-orange.svg)](https://www.microsoft.com/en-ca/windows/windows-11)
 
-[Isaac Sim Compatibility Checker](https://docs.isaacsim.omniverse.nvidia.com/4.5.0/installation/requirements.html#id6)
+[Isaac Sim Compatibility Checker](https://docs.isaacsim.omniverse.nvidia.com/5.0.0/installation/requirements.html#id6)
 
 The Isaac Sim Compatibility Checker is a lightweight application that programmatically checks the above requirements and indicates which of them are valid, or not, for running Isaac Sim on the machine.
 Installation
@@ -66,12 +66,12 @@ sudo update-grub
 sudo reboot
 ```
 
-> [!Note]
+> [! Note]
 > Disabling IOMMU may improve performance for applications like Isaac Sim but could reduce system security and break certain virtualization features. Consider your specific requirements before making this change.
 
 ## [Demos](https://isaac-sim.github.io/IsaacLab/main/source/overview/showroom.html)
 
-> [!NOTE]
+> [! NOTE]
 > it takes a while to load the first time you run it.
 
 ### quadrupeds

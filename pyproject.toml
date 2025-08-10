@@ -1,23 +1,15 @@
 [project]
-name = "isaaclab-uv"
-description = "isaaclab template with uv"
-readme = "README.md"
-requires-python = ">=3.10,<3.11"
-license = { file = "LICENSE" }
-authors = [{ name = "A.J.Zeller", email = "hello@atticux.me" }]
-maintainers = [{ name = "A.J.Zeller", email = "hello@atticux.me" }]
-dynamic = ["version"] # https://hatch.pypa.io/latest/config/metadata/#version
-dependencies = [
-    "isaaclab",
-    "isaaclab-assets",
-    "isaaclab-mimic",
-    "isaaclab-rl",
-    "isaaclab-tasks",
-    "isaacsim[all,extscache]==4.5.0",
-    "torch>= 2.1,<= 2.7.1",
-    "torchmetrics>=1.6.1",
-    "torchvision>=0.19.0",
-    "typer>=0.15.1",
+name            = "isaaclab-uv"
+description     = "isaaclab template with uv"
+readme          = "README.md"
+requires-python = ">=3.11,<3.12"
+license         = { file = "LICENSE" }
+authors         = [{ name = "A.J.Zeller", email = "hello@atticux.me" }]
+maintainers     = [{ name = "A.J.Zeller", email = "hello@atticux.me" }]
+dynamic         = ["version"]                                           # https://hatch.pypa.io/latest/config/metadata/#version
+dependencies    = [
+    "isaacsim[all,extscache]==5.0.0",
+ "typer>=0.15.1",
 ]
 
 [project.optional-dependencies]
@@ -35,20 +27,15 @@ dev = [
 ]
 
 [tool.uv.sources]
+# pip install torch==2.7.0 torchvision==0.22.0 --index-url https://download.pytorch.org/whl/cu128
 torch = [
     { index = "pytorch-cu121", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
 ]
 torchvision = [
     { index = "pytorch-cu121", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
 ]
-
-isaacsim        = [{ index = "nvidia" }]
-omniverse-kit   = [{ index = "nvidia" }]
-isaaclab-assets = { path = "issaclab/source/isaaclab_assets", editable = true }
-isaaclab-tasks  = { path = "issaclab/source/isaaclab_tasks", editable = true }
-isaaclab        = { path = "issaclab/source/isaaclab", editable = true }
-isaaclab-mimic  = { path = "issaclab/source/isaaclab_mimic", editable = true }
-isaaclab-rl     = { path = "issaclab/source/isaaclab_rl", editable = true }
+# pip install "isaacsim[all,extscache]==5.0.0" --extra-index-url https://pypi.nvidia.com
+isaacsim = [{ index = "nvidia" }]
 
 [[tool.uv.index]]
 name     = "pytorch-cu121"
