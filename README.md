@@ -25,6 +25,19 @@ git clone --recurse-submodules git@github.com:AtticusZeller/IsaacLab-uv.git
 uv sync --dev
 ```
 
+### test `isaac sim`
+
+```bash 
+isaacsim isaacsim.exp.full.streaming 
+
+```
+
+headless for GPU server
+
+```bash
+isaacsim isaacsim.exp.full.streaming --no-window
+```
+
 ### install issaclab
 
 install all
