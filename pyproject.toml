@@ -8,11 +8,20 @@ authors         = [{ name = "A.J.Zeller", email = "hello@atticux.me" }]
 maintainers     = [{ name = "A.J.Zeller", email = "hello@atticux.me" }]
 dynamic         = ["version"]                                           # https://hatch.pypa.io/latest/config/metadata/#version
 dependencies    = [
+    "isaaclab",
+    "isaaclab-assets",
+    "isaaclab-mimic",
+    "isaaclab-rl",
+    "isaaclab-tasks",
     "isaacsim[all,extscache]==5.0.0",
- "typer>=0.15.1",
+    "typer>=0.15.1",
 ]
 
 [project.optional-dependencies]
+rl = [
+    "isaaclab-mimic[all]",
+    "isaaclab-rl[all]",
+]
 # optional deps for package installation
 
 [dependency-groups]
@@ -36,6 +45,11 @@ torchvision = [
 ]
 # pip install "isaacsim[all,extscache]==5.0.0" --extra-index-url https://pypi.nvidia.com
 isaacsim = [{ index = "nvidia" }]
+isaaclab = { path = "isaaclab/source/isaaclab", editable = true }
+isaaclab-assets = { path = "isaaclab/source/isaaclab_assets", editable = true }
+isaaclab-tasks = { path = "isaaclab/source/isaaclab_tasks", editable = true }
+isaaclab-rl = { path = "isaaclab/source/isaaclab_rl", editable = true }
+isaaclab-mimic = { path = "isaaclab/source/isaaclab_mimic", editable = true }
 
 [[tool.uv.index]]
 name     = "pytorch-cu121"
