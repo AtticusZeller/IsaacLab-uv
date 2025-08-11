@@ -13,51 +13,67 @@ bash scripts/compatibility_check.sh
 > [!Note]
 > GUI checker -> [Isaac Sim Compatibility Checker](https://docs.isaacsim.omniverse.nvidia.com/5.0.0/installation/requirements.html#id6)
 
+
+```bash
+sudo apt install cmake build-essential
+```
+
 ### Clone
 
 ```bash
 git clone --recurse-submodules git@github.com:AtticusZeller/IsaacLab-uv.git
 ```
 
-### install deps which contains issac sim and issaclab
+### install from `pyproject.toml`
 
 ```bash
 uv sync --dev
 ```
 
-### test `isaac sim`
+```bash
+# install all Rl frameworks
+uv sync --dev --all-extras
+```
 
-```bash 
-isaacsim isaacsim.exp.full.streaming 
+### install manually
 
+#### install isaacsim
+
+```bash
+# isaacsim 
+uv add "isaacsim[all,extscache]==5.0.0"
+```
+
+#### install isaaclab
+
+```bash
+# clone
+git submodule add https://github.com/isaac-sim/IsaacLab.git isaaclab
+
+# install packages
+find -L ./isaaclab/source -mindepth 1 -maxdepth 1 -type d -exec bash -c 'if [ -f "$1/setup.py" ]; then echo "Installing: $1"; uv add --editable "$1"; fi' _ {} \;
+
+# install the learning frameworks specified
+uv add --editable "./isaaclab/source/isaaclab_rl[all]"  --optional rl
+uv add --editable "./isaaclab/source/isaaclab_mimic[all]" --optional rl
+```
+
+### Test 
+
+#### test `isaac sim`
+
+```bash
+isaacsim
 ```
 
 headless for GPU server
 
 ```bash
-isaacsim isaacsim.exp.full.streaming --no-window
+isaacsim --no-window
 ```
 
-### install issaclab
+#### test `isaaclab`
 
-install all
-
-```bash
-find -L ./issaclab/source -mindepth 1 -maxdepth 1 -type d -exec bash -c 'if [ -f "$1/setup.py" ]; then echo "Installing: $1"; uv add --editable "$1"; fi' _ {} \;
-```
-
-install manually
-
-```bash
-uv add --editable issaclab/source/isaaclab
-```
-
-[isaac sim install guide](https://isaac-sim.github.io/IsaacLab/main/source/setup/quickstart.html)
-official install script
-
-```bash
-uv run issaclab/isaaclab.sh --install
-```
 
 ### disable IOMMU
 
@@ -89,7 +105,7 @@ sudo reboot
 ![dogs](assets/dogs.png)
 
 ```bash
-python  issaclab/scripts/demos/quadrupeds.py
+python  isaaclab/scripts/demos/quadrupeds.py
 ```
 
 ### unitree H1
@@ -97,5 +113,5 @@ python  issaclab/scripts/demos/quadrupeds.py
 ![h1](assets/h1.png)
 
 ```bash
-python issaclab/scripts/demos/h1_locomotion.py
+python isaaclab/scripts/demos/h1_locomotion.py
 ```
