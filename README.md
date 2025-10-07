@@ -40,7 +40,7 @@ uv sync --dev --all-extras
 #### install isaacsim
 
 ```bash
-# isaacsim 
+# isaacsim
 uv add "isaacsim[all,extscache]==5.0.0"
 ```
 
@@ -58,7 +58,7 @@ uv add --editable "./isaaclab/source/isaaclab_rl[all]"  --optional rl
 uv add --editable "./isaaclab/source/isaaclab_mimic[all]" --optional rl
 ```
 
-### Test 
+### Test
 
 #### test `isaac sim`
 
