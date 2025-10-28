@@ -13,7 +13,7 @@ dependencies    = [
     "isaaclab-mimic",
     "isaaclab-rl",
     "isaaclab-tasks",
-    "isaacsim[all,extscache]==5.0.0",
+    "isaacsim[all,extscache]==5.1.0.0",
     "typer>=0.15.1",
 ]
 
@@ -43,7 +43,7 @@ torch = [
 torchvision = [
     { index = "pytorch-cu121", marker = "sys_platform == 'linux' or sys_platform == 'win32'" },
 ]
-# pip install "isaacsim[all,extscache]==5.0.0" --extra-index-url https://pypi.nvidia.com
+# pip install "isaacsim[all,extscache]==5.1.0.0" --extra-index-url https://pypi.nvidia.com
 isaacsim = [{ index = "nvidia" }]
 isaaclab = { path = "isaaclab/source/isaaclab", editable = true }
 isaaclab-assets = { path = "isaaclab/source/isaaclab_assets", editable = true }
