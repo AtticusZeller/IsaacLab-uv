@@ -1,18 +1,9 @@
-### system requirements
+## IsaacLab-uv
 
-[![IsaacSim 5.0.0](https://img.shields.io/badge/IsaacSim-5.0.0-silver.svg)](https://developer.nvidia.com/isaac-sim)
-[![Python 3.11](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/downloads/release/python-31013/)
+[![IsaacSim 5.1.0](https://img.shields.io/badge/IsaacSim-5.1.0-silver.svg)](https://developer.nvidia.com/isaac-sim)
+[![IsaacLab 2.3.0](https://img.shields.io/badge/IsaacLab-2.3.0-silver.svg)](https://isaac-sim.github.io/IsaacLab/main/index.html)
+[![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/downloads/release/python-311/)
 [![Platform: Linux-64](https://img.shields.io/badge/platform-linux--64-orange.svg)](https://releases.ubuntu.com/20.04/)
-[![Platform: Windows-64](https://img.shields.io/badge/platform-windows--64-orange.svg)](https://www.microsoft.com/en-ca/windows/windows-11)
-
-```bash
-# Official compatibility Checker
-bash scripts/compatibility_check.sh
-```
-
-> [!Note]
-> GUI checker -> [Isaac Sim Compatibility Checker](https://docs.isaacsim.omniverse.nvidia.com/5.0.0/installation/requirements.html#id6)
-
 
 ```bash
 sudo apt install cmake build-essential
@@ -41,7 +32,7 @@ uv sync --dev --all-extras
 
 ```bash
 # isaacsim
-uv add "isaacsim[all,extscache]==5.0.0"
+uv add "isaacsim[all,extscache]==5.1.0"
 ```
 
 #### install isaaclab
@@ -73,7 +64,6 @@ isaacsim --no-window
 ```
 
 #### test `isaaclab`
-
 
 ### disable IOMMU
 
