@@ -17,6 +17,7 @@ dependencies = [
     "isaaclab-rl",
     "isaaclab-tasks",
     "typer>=0.15.1",
+    "wandb>=0.23.1",
 ]
 
 [project.optional-dependencies]
