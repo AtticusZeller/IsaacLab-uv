@@ -1,3 +1,20 @@
 {
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportMissingImports": "warning"
+  },
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}/isaaclab/source/isaaclab",
+    "${workspaceFolder}/isaaclab/source/isaaclab_assets",
+    "${workspaceFolder}/isaaclab/source/isaaclab_mimic",
+    "${workspaceFolder}/isaaclab/source/isaaclab_rl",
+    "${workspaceFolder}/isaaclab/source/isaaclab_tasks"
+  ],
+  "python.autoComplete.extraPaths": [
+    "${workspaceFolder}/isaaclab/source/isaaclab",
+    "${workspaceFolder}/isaaclab/source/isaaclab_assets",
+    "${workspaceFolder}/isaaclab/source/isaaclab_mimic",
+    "${workspaceFolder}/isaaclab/source/isaaclab_rl",
+    "${workspaceFolder}/isaaclab/source/isaaclab_tasks"
+  ],
   "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python3"
 }
