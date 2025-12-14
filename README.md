@@ -49,21 +49,11 @@ uv add --editable "./isaaclab/source/isaaclab_rl[all]"  --optional rl
 uv add --editable "./isaaclab/source/isaaclab_mimic[all]" --optional rl
 ```
 
-### Test
-
-#### test `isaac sim`
+### Test Compatibility
 
 ```bash
-isaacsim
+isaacsim isaacsim.exp.compatibility_check
 ```
-
-headless for GPU server
-
-```bash
-isaacsim --no-window
-```
-
-#### test `isaaclab`
 
 ### disable IOMMU
 
