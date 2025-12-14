@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 
 # ================= CONFIGURATION =================
-# Update these lines when your AutoDL instance changes
-HOST="connect.bjb2.seetacloud.com"
-PORT="29549"
-PASSWORD="IrdJwEymMHqt"
+# Load HOST, PORT, and PASSWORD from .env file
+if [ -f .env ]; then
+    set -a
+    source .env
+    set +a
+fi
 
 # Paths (Keep trailing slashes)
-REMOTE_PATH="/root/Devspace/IsaacLab-uv/isaaclab/logs/"
-LOCAL_PATH="$HOME/DevSpace/IsaacLab-uv/isaaclab/logs/"
+REMOTE_PATH="/root/DevSpace/IsaacLab-uv/logs/"
+LOCAL_PATH="$HOME/DevSpace/IsaacLab-uv/logs/"
 # =================================================
 
 echo "Starting sync from AutoDL..."
