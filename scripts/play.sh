@@ -14,6 +14,7 @@ NUM_ENVS=128
 RESUME=""
 LOAD_RUN=""
 CHECKPOINT=""
+USE_WEBRTC=false
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
@@ -38,6 +39,10 @@ while [[ $# -gt 0 ]]; do
             CHECKPOINT="--checkpoint $2"
             shift 2
             ;;
+        --webrtc)
+            USE_WEBRTC=true
+            shift
+            ;;
         *)
             echo "❌ Unknown argument: $1"
             exit 1
@@ -55,16 +60,27 @@ if [ -z "$TASK" ]; then
     echo "💡 Usage: $0 --task Isaac-Velocity-Rough-H1-v0 [options]"
     echo ""
     echo "📝 Optional arguments:"
-    echo "   --num_envs N      Number of environments (default: 16)"
+    echo "   --num_envs N      Number of environments (default: 128)"
     echo "   --resume          Resume from a checkpoint"
     echo "   --load_run NAME   Load a specific run"
     echo "   --checkpoint FILE Specify a checkpoint file"
+    echo "   --webrtc          Enable WebRTC streaming (default: GUI)"
     exit 1
+fi
+
+# Set livestream parameter based on webrtc flag
+if [ "$USE_WEBRTC" = true ]; then
+    LIVESTREAM_PARAM="--livestream 2"
+    DISPLAY_MODE="WebRTC"
+else
+    LIVESTREAM_PARAM=""
+    DISPLAY_MODE="GUI"
 fi
 
 echo "🎮 Starting inference"
 echo "📦 Task: $TASK"
 echo "🔢 Num Envs: $NUM_ENVS"
+echo "🖥️  Display: $DISPLAY_MODE"
 [ -n "$RESUME" ] && echo "♻️  Resume: Yes"
 [ -n "$LOAD_RUN" ] && echo "📂 Load Run: ${LOAD_RUN#--load_run }"
 [ -n "$CHECKPOINT" ] && echo "💾 Checkpoint: ${CHECKPOINT#--checkpoint }"
@@ -74,7 +90,8 @@ echo ""
 python isaaclab/scripts/reinforcement_learning/rsl_rl/play.py \
     --task="$TASK" \
     --num_envs $NUM_ENVS \
-    --rendering_mode performance \
+    $LIVESTREAM_PARAM \
+    --rendering_mode balanced \
     --device cuda \
     $RESUME \
     $LOAD_RUN \
