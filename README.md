@@ -24,6 +24,7 @@ uv sync --dev
 ```bash
 # install all Rl frameworks
 uv sync --dev --all-extras
+uv pip install -e .
 ```
 
 ### install manually
