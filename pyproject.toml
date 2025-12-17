@@ -9,7 +9,7 @@ maintainers = [{ name = "A.J.Zeller", email = "hello@atticux.me" }]
 dynamic = ["version"] # https://hatch.pypa.io/latest/config/metadata/#version
 dependencies = [
     "isaacsim[all,extscache]==5.1.0.0", # https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/pip_installation.html#installing-dependencies
-    "torch==2.7.0",
+    "torch==2.9.1",
     "torchvision==0.22.0",
     "isaaclab",
     "isaaclab-assets",
@@ -45,7 +45,7 @@ override-dependencies = ["pywin32==306; sys_platform == 'win32'"]
 # 2. https://docs.astral.sh/uv/concepts/projects/dependencies/#platform-specific-dependencies
 
 [tool.uv.sources]
-# pip install torch==2.7.0 torchvision==0.22.0 --index-url https://download.pytorch.org/whl/cu128
+# pip install torch==2.9.1 torchvision==0.22.0 --index-url https://download.pytorch.org/whl/cu128
 torch       = [{ index = "pytorch-cu128" }]
 torchvision = [{ index = "pytorch-cu128" }]
 # pip install "isaacsim[all,extscache]==5.1.0.0" --extra-index-url https://pypi.nvidia.com
