@@ -37,7 +37,7 @@ show_help() {
 cmd_train() {
     local TASK=""
     local RUN_NAME=""
-    
+
     # Parse arguments specific to training
     while [[ $# -gt 0 ]]; do
         case $1 in
@@ -144,7 +144,7 @@ cmd_sync() {
     local LOCAL_PATH="$HOME/DevSpace/IsaacLab-uv/logs/"
 
     echo "Starting sync from AutoDL..."
-    
+
     if ! command -v sshpass &> /dev/null; then
         echo "Error: sshpass is not installed."
         exit 1
@@ -160,7 +160,7 @@ cmd_sync() {
         -e "ssh -p $PORT -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" \
         --exclude '*.tfevents*' \
         "root@$HOST:$REMOTE_PATH" "$LOCAL_PATH"
-        
+
     echo "Sync finished."
 }
 
